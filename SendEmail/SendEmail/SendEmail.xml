@@ -1,0 +1,104 @@
+﻿<ManagementPack ContentReadable="true" SchemaVersion="1.1" OriginalSchemaVersion="1.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <Manifest>
+    <Identity>
+      <ID>SendEmail</ID>
+      <Version>1.0.0.0</Version>
+    </Identity>
+    <Name>SendEmail</Name>
+    <References>
+      <Reference Alias="System">
+        <ID>System.Library</ID>
+        <Version>7.0.5826.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Console">
+        <ID>Microsoft.EnterpriseManagement.ServiceManager.UI.Console</ID>
+        <Version>7.0.5826.859</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="IncidentLibrary">
+        <ID>System.WorkItem.Incident.Library</ID>
+        <Version>7.0.5826.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Authoring">
+        <ID>Microsoft.EnterpriseManagement.ServiceManager.UI.Authoring</ID>
+        <Version>7.0.5826.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Administration">
+        <ID>Microsoft.EnterpriseManagement.ServiceManager.UI.Administration</ID>
+        <Version>7.0.5826.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+    </References>
+  </Manifest>
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="IncidentSendMailExtension" Accessibility="Public" Abstract="false" Base="IncidentLibrary!System.WorkItem.Incident" Hosted="false" Singleton="false" Extension="true">
+          <Property ID="MessageType" Type="enum" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" EnumType="MessageType" />
+          <Property ID="Message" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="4000" MinLength="0" Required="false" MaxValue="-2147483648" />
+        </ClassType>
+      </ClassTypes>
+      <EnumerationTypes>
+        <EnumerationValue ID="MessageType" Accessibility="Public" />
+      </EnumerationTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <Categories>
+    <Category ID="SendEmail.Category" Value="Console!Microsoft.EnterpriseManagement.ServiceManager.ManagementPack">
+      <ManagementPackName>SendEmail</ManagementPackName>
+      <ManagementPackVersion>1.0.0.0</ManagementPackVersion>
+      <ManagementPackPublicKeyToken>31bf3856ad364e35</ManagementPackPublicKeyToken>
+    </Category>
+    <Category ID="MessageTypeEnumViewTasksCategory" Target="MessageType" Value="Authoring!Microsoft.EnterpriseManagement.ServiceManager.UI.Authoring.EnumerationViewTasks" />
+    <Category ID="MessageTypeEnumVisibleToUserCategory" Target="MessageType" Value="System!VisibleToUser" />
+  </Categories>
+  <Presentation>
+    <ConsoleTasks>
+      <ConsoleTask ID="SendEmailTask" Accessibility="Public" Enabled="true" Target="IncidentLibrary!System.WorkItem.Incident" RequireOutput="false">
+        <Assembly>Console!SdkDataAccessAssembly</Assembly>
+        <Handler>Microsoft.EnterpriseManagement.UI.SdkDataAccess.ConsoleTaskHandler</Handler>
+        <Parameters>
+          <Argument Name="Assembly">SendEmail</Argument>
+          <Argument Name="Type">SendEmail.SendEmailTaskHandler</Argument>
+          <Argument>SendEmail</Argument>
+        </Parameters>
+      </ConsoleTask>
+    </ConsoleTasks>
+    <ImageReferences>
+      <ImageReference ElementID="SendEmailTask" ImageID="Administration!Microsoft.EnterpriseManagement.ServiceManager.UI.Administration.Image.Notification" />
+    </ImageReferences>
+   </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="SendEmail">
+          <Name>SendEmail</Name>
+        </DisplayString>
+        <DisplayString ElementID="IncidentSendMailExtension">
+          <Name>Extension of Incident</Name>
+          <Description>Extension of class Incident</Description>
+        </DisplayString>
+        <DisplayString ElementID="IncidentSendMailExtension" SubElementID="Message">
+          <Name>Message</Name>
+        </DisplayString>
+        <DisplayString ElementID="IncidentSendMailExtension" SubElementID="MessageType">
+          <Name>Message Type</Name>
+        </DisplayString>
+        <DisplayString ElementID="MessageType">
+          <Name>Message Type</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="SendEmailTask">
+          <Name>Send Email</Name>
+          <Description></Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+  <Resources>
+    <Assembly ID="Assembly.SendEmail" Accessibility="Public" FileName="SendEmail.dll" HasNullStream="false" QualifiedName="SendEmail, Version=1.0.0.0" />
+  </Resources>
+</ManagementPack>

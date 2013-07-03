@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SendEmail">
+</Property><Property Name="Solution File" Value="C:\Users\Administrator\Documents\Software\SendEmail\SendEmail.sln">
+</Property><Property Name="User Options File" Value="C:\Users\Administrator\Documents\Software\SendEmail\SendEmail.suo">
+</Property><Property Name="Date" Value="Tuesday, November 16, 2010">
+</Property><Property Name="Time" Value="14:00 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SendEmail.sln" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail.sln">
+</Event><Event ErrorLevel="0" Project="" Source="SendEmail.suo" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail.suo">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\SendEmail.csproj" Description="Project file successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\SendEmail.csproj">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\Constants.cs" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\Constants.cs">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\Properties\Resources.Designer.cs" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\Properties\Settings.Designer.cs" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\SendEmailForm.xaml.cs" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\SendEmailForm.xaml.cs">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\SendEmailTaskHandler.cs" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\SendEmailTaskHandler.cs">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\SendEmailWizardData.cs" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\SendEmailWizardData.cs">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\Properties\Settings.settings" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\Properties\Resources.resx" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\SendEmailForm.xaml" Description="File successfully backed up as C:\Users\Administrator\Documents\Software\SendEmail\Backup\SendEmail\SendEmailForm.xaml">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\SendEmail.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="SendEmail" Source="SendEmail\SendEmail.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SendEmail.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="SendEmail.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SendEmail" Source="SendEmail\SendEmail.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

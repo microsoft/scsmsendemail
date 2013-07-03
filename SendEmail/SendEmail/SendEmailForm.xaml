@@ -1,0 +1,36 @@
+﻿<wpfwiz:WizardRegularPageBase x:Class="SendEmail.SendEmailForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:wpfwiz="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfWizardFramework;assembly=Microsoft.EnterpriseManagement.UI.WpfWizardFramework"
+    xmlns:smcontrols="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfControls;assembly=Microsoft.EnterpriseManagement.UI.SmControls"
+    xmlns:local="clr-namespace:SendEmail"   
+    Height="Auto" Width="Auto" MinWidth="316" MinHeight="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="30"/>
+            <!--
+            <RowDefinition />
+            <RowDefinition />
+            -->
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+                <Label Margin="8,0,8,0" Grid.Row="0" Height="25">Message:</Label>
+                <TextBox Name="txtMessage" Height="Auto" VerticalScrollBarVisibility="Auto" MinHeight="100" MinWidth="300" Margin="8,0,8,0" AcceptsReturn="True" Text="{Binding Message}" MaxLength="4000" TextChanged="txtMessage_TextChanged" TextWrapping="Wrap" Grid.Row="1" TabIndex="0" />
+                <Label Width="Auto" Margin="8,0,8,0" HorizontalAlignment="Left" Name="lblRemainingCharacters" Grid.Row="2">4000</Label>
+            
+                <Label Width="Auto" Height="25" Margin="8,8,8,0" HorizontalAlignment="Left" Grid.Row="3">Message type:</Label>
+                <smcontrols:ListPicker Name="lpMessageType" Margin="8,0,8,0" Height="25" MinWidth="300" HorizontalAlignment="Left" ParentCategoryId="{Binding Source={x:Static local:SendEmailForm.guidMessageTypeEnumRoot}, Mode=OneWay}" SelectedItem="{Binding Path=MessageType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="4" TabIndex="1" IsTabStop="True" Focusable="True" />
+            
+                <!--
+                <Label Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="8,0,8,0" Grid.Row="5">Status:</Label>
+                <smcontrols:ListPicker Name="lpIncidentStatus" Width="Auto" Height="Auto" HorizontalAlignment="Left" Margin="8,0,8,0" MinWidth="300" ParentCategoryId="{Binding Source={x:Static local:SendEmailForm.guidIncidentStatusEnumRoot}, Mode=OneWay}" SelectedItem="{Binding Path=IncidentStatus, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Row="6"/>
+                -->
+                
+                <CheckBox Margin="8,15,8,0"  IsChecked="{Binding AddToActionLog}" Grid.Row="7" TabIndex="2">Add messsage to action log</CheckBox>
+            
+    </Grid>
+</wpfwiz:WizardRegularPageBase>
