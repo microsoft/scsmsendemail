@@ -1,0 +1,1 @@
+Please see the Downloads section for the Deployment and Usage guide for SendEmail. 

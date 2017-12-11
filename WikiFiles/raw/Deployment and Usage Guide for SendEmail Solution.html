@@ -1,0 +1,319 @@
+<div class="wikidoc">
+<p>Version 1.0 </p>
+<h3>Reminder: SendEmail 1.0 is not officially supported by Microsoft</h3>
+<h3>SendEmail Overview</h3>
+<p>The purpose of the SendEmail solution is to allow the Service Desk console user to send email notifications to other users regarding a particular incident. The solution uses standard notification templates and workflow/notifications to send the emails. The
+ way the solution works is by extending the incident class with two additional properties – Message Type and Message. As you will see later the Message Type determines which notification template will be used to send the Message.
+</p>
+<p>The following steps outline a scenario to better understand the purpose and experience. The scenario is that an analyst is working on an incident and needs to request additional information from the affected user.
+</p>
+<p>1) The analyst opens the incident (or selects it in a view without opening the form)
+</p>
+<p>2) The analyst click the Send Email task link in the task pane </p>
+<p>3) The analyst fills out the form by specifying the message to send to the user, selecting the message type, and optionally adding the message to the action log.
+</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699017"><img title="clip_image001[4]" border="0" alt="clip_image001[4]" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699018" width="241" height="244" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>4) If the analyst has the incident form open he can see that a new message type value has been selected and the message property is filled in.
+</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699019"><img title="clip_image002" border="0" alt="clip_image002" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699020" width="244" height="51" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699021"><img title="clip_image003" border="0" alt="clip_image003" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699022" width="241" height="57" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>The message is added to the action log. </p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699023"><img title="clip_image005" border="0" alt="clip_image005" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699024" width="244" height="38" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>5) A few seconds later the affected user should receive an email like this: </p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699025"><img title="clip_image006" border="0" alt="clip_image006" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699026" width="244" height="82" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<h3>Deployment</h3>
+<p>1) Import the SendEmail.mpb file </p>
+<h3>Configuration</h3>
+<p>1) Customize the Message Type list to add whatever message types you like. Select Message Type in the Library\Lists view and click the Properties link in the action pane.
+</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699027"><img title="clip_image007" border="0" alt="clip_image007" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699028" width="244" height="148" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>Click Add Item in the List Properties dialog. </p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699029"><img title="clip_image009" border="0" alt="clip_image009" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699030" width="244" height="174" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>When you click Add Item You will be prompted to select a management pack to store your customizations in. It is recommended to create a special management pack for all customizations related to the Send Email solution.
+</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699031"><img title="clip_image011" border="0" alt="clip_image011" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699032" width="244" height="145" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>You can add as many message types as you like and they can be organized hierarchically if you want.
+</p>
+<p>redeploy the SendEmail solution. </p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699033"><img title="clip_image013" border="0" alt="clip_image013" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699034" width="244" height="243" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>2) Create notification templates for whatever scenario makes sense. Example: Create a notification template to send a notification to the affected user whenever the Message Type is ‘Request Additional Info From Affected User’.
+</p>
+<p>a. Go to the Administration/Notifications/Templates view </p>
+<p>b. Click Create Email Template in the tasks pane on the right </p>
+<p>c. Provide a name, target the Incident class, and put the template in the ‘SendEmail Customizations MP’ that you created above.
+</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699035"><img title="clip_image015" border="0" alt="clip_image015" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699036" width="244" height="172" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>Click Next </p>
+<p>d. Format the notification template something like this: </p>
+<p>Make sure you use the Insert… button to insert the properties ($...$) and don’t just type them in.
+</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699037"><img title="clip_image017" border="0" alt="clip_image017" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699038" width="244" height="171" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>Two notes: </p>
+<p>· If you are going to use the Exchange Connector to process incident email replies make sure you include the Work Item ID in square brackets in the subject.
+</p>
+<p>· Include the Message property value wherever you like in the message body. </p>
+<p>Click Next </p>
+<p>e. Click Create </p>
+<p>f. Click Close </p>
+<p>3) Create Incident Event Workflows for whatever scenarios make sense. Example: Create a notification to the affected user whenever the message type is ’Request Additional Info From Affected User’.
+</p>
+<p>a. Go to the Administration/Workflows/Configuration view. </p>
+<p>b. Select Incident Event Workflow Configuration. Click Properties. </p>
+<p>c. Click Add. </p>
+<p>d. Fill out the general properties something like this: </p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699039"><img title="clip_image019" border="0" alt="clip_image019" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699040" width="244" height="173" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p><b>Note</b>: Select the same SendEmail Customizations MP that you created above.
+</p>
+<p>Click Next </p>
+<p>e. Set the criteria to be:
+<table cellspacing="0" cellpadding="0" border="1">
+<tbody>
+<tr>
+<td valign="top" width="367">
+<p><b>Change From</b></p>
+</td>
+<td valign="top" width="367">
+<p><b>Changed To</b></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="367">
+<p><b><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699041"><img title="clip_image021" border="0" alt="clip_image021" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699042" width="244" height="202" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a></b></p>
+</td>
+<td valign="top" width="367">
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699043"><img title="clip_image023" border="0" alt="clip_image023" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699044" width="244" height="207" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p>Click Next. </p>
+<p>i. Choose Do not apply a template (unless you want to) </p>
+<p>Click Next </p>
+<p>ii. Check ‘Enable notification’, choose to send the email to the affected user (or the appropriate recipient depending on your scenario) with the new template you just created.
+</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699045"><img title="clip_image025" border="0" alt="clip_image025" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699046" width="244" height="172" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>Click Next </p>
+<p>iii. Click Create </p>
+<p>iv. Click Close </p>
+<p>v. Click OK </p>
+<p>4) Now the MP XML needs to be manually edited to get the subscription criteria right. This is necessary because the UI doesn’t provide a way to create this kind of subscription criteria that the subscription infrastructure supports.
+</p>
+<p>a. Go to the Administration\Management Packs view to export out this MP so the XML subscription criteria can be changed. Export out the MP XML file by selecting the ‘SendEmail Customizations’ MP and clicking the Export task.
+</p>
+<p>b. Open the XML file in an XML editor. </p>
+<p>c. At the top of the XML file increment the version number from 7.0.5826.0 to 7.0.5826.1
+</p>
+<p>For example from: </p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699047"><img title="clip_image026" border="0" alt="clip_image026" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699048" width="244" height="50" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>To: </p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699049"><img title="clip_image027" border="0" alt="clip_image027" src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=scsmsendemail&DownloadId=699050" width="244" height="50" style="border-top:0px; border-right:0px; border-bottom:0px; border-left:0px; display:inline"></a>
+</p>
+<p>d. Search for &lt;UpdateInstance&gt; - you’ll see some XML that looks like below on the left.
+</p>
+<p>e. Being very careful to get the nesting of the XML elements correct. Change the criteria to this:
+<table cellspacing="0" cellpadding="0" border="1">
+<tbody>
+<tr>
+<td valign="top" width="367">
+<p><b>Before</b></p>
+</td>
+<td valign="top" width="367">
+<p><b>After</b></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="367">
+<p><b>&lt;</b><b>Criteria</b><b>&gt;</b> </p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b>&lt;</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>And</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>UnaryExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>ValueExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Property</b><b> </b><b>State</b><b>=</b><b>&quot;Pre&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/Message$&lt;/Property&gt;</b>
+</p>
+<p><b>&lt;/</b><b>ValueExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Operator</b><b>&gt;</b><b>IsNull&lt;/Operator&gt;</b> </p>
+<p><b>&lt;/</b><b>UnaryExpression</b><b>&gt;</b> </p>
+<p><b>&lt;/</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>And</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>SimpleExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>ValueExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Property</b><b> </b><b>State</b><b>=</b><b>&quot;Post&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/MessageType$&lt;/Property&gt;</b>
+</p>
+<p><b>&lt;/</b><b>ValueExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Operator</b><b>&gt;</b><b>Equal&lt;/Operator&gt;</b> </p>
+<p><b>&lt;</b><b>ValueExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Value</b><b>&gt;</b><b>{9f6d72ad-1bff-ca89-f619-8d50cd876576}&lt;/Value&gt;</b>
+</p>
+<p><b>&lt;/</b><b>ValueExpression</b><b>&gt;</b> </p>
+<p><b>&lt;/</b><b>SimpleExpression</b><b>&gt;</b> </p>
+<p><b>&lt;/</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>UnaryExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>ValueExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Property</b><b> </b><b>State</b><b>=</b><b>&quot;Post&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/Message$&lt;/Property&gt;</b>
+</p>
+<p><b>&lt;/</b><b>ValueExpression</b><b>&gt;</b> </p>
+<p><b>&lt;</b><b>Operator</b><b>&gt;</b><b>IsNotNull&lt;/Operator&gt;</b> </p>
+<p><b>&lt;/</b><b>UnaryExpression</b><b>&gt;</b> </p>
+<p><b>&lt;/</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;/</b><b>And</b><b>&gt;</b> </p>
+<p><b>&lt;/</b><b>Expression</b><b>&gt;</b> </p>
+<p><b>&lt;/</b><b>And</b><b>&gt;</b> </p>
+<p><b>&lt;/</b><b>Expression</b><b>&gt;</b> </p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b></b></p>
+<p><b>&lt;/</b><b>Criteria</b><b>&gt;</b><b></b></p>
+</td>
+<td valign="top" width="367">
+<p>&lt;Criteria&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;Or&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;And&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;UnaryExpression&gt; </p>
+<p>&lt;ValueExpression&gt; </p>
+<p>&lt;Property State=&quot;Pre&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/Message$&lt;/Property&gt;
+</p>
+<p>&lt;/ValueExpression&gt; </p>
+<p>&lt;Operator&gt;IsNull&lt;/Operator&gt; </p>
+<p>&lt;/UnaryExpression&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;And&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;SimpleExpression&gt; </p>
+<p>&lt;ValueExpression&gt; </p>
+<p>&lt;Property State=&quot;Post&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/MessageType$&lt;/Property&gt;
+</p>
+<p>&lt;/ValueExpression&gt; </p>
+<p>&lt;Operator&gt;Equal&lt;/Operator&gt; </p>
+<p>&lt;ValueExpression&gt; </p>
+<p>&lt;Value&gt;{9f6d72ad-1bff-ca89-f619-8d50cd876576}&lt;/Value&gt; </p>
+<p>&lt;/ValueExpression&gt; </p>
+<p>&lt;/SimpleExpression&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;UnaryExpression&gt; </p>
+<p>&lt;ValueExpression&gt; </p>
+<p>&lt;Property State=&quot;Post&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/Message$&lt;/Property&gt;
+</p>
+<p>&lt;/ValueExpression&gt; </p>
+<p>&lt;Operator&gt;IsNotNull&lt;/Operator&gt; </p>
+<p>&lt;/UnaryExpression&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;/And&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;/And&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;And&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;SimpleExpression&gt; </p>
+<p>&lt;ValueExpression&gt; </p>
+<p>&lt;Property State=&quot;Pre&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/Message$&lt;/Property&gt;
+</p>
+<p>&lt;/ValueExpression&gt; </p>
+<p>&lt;Operator&gt;NotEqual&lt;/Operator&gt; </p>
+<p>&lt;ValueExpression&gt; </p>
+<p>&lt;Property State=&quot;Post&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/Message$&lt;/Property&gt;
+</p>
+<p>&lt;/ValueExpression&gt; </p>
+<p>&lt;/SimpleExpression&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;Expression&gt; </p>
+<p>&lt;SimpleExpression&gt; </p>
+<p>&lt;ValueExpression&gt; </p>
+<p>&lt;Property State=&quot;Post&quot;&gt;$Context/Property[Type='SendEmail!IncidentSendMailExtension']/MessageType$&lt;/Property&gt;
+</p>
+<p>&lt;/ValueExpression&gt; </p>
+<p>&lt;Operator&gt;Equal&lt;/Operator&gt; </p>
+<p>&lt;ValueExpression&gt; </p>
+<p>&lt;Value&gt;{9f6d72ad-1bff-ca89-f619-8d50cd876576}&lt;/Value&gt; </p>
+<p>&lt;/ValueExpression&gt; </p>
+<p>&lt;/SimpleExpression&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;/And&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;/Or&gt; </p>
+<p>&lt;/Expression&gt; </p>
+<p>&lt;/Criteria&gt;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+<p>Things changed: </p>
+<p>· Added an Outer &lt;Expression&gt;&lt;Or&gt;…. &lt;/Or&gt;&lt;/Expression&gt;block to OR the following logical criteria together:
+</p>
+<p>a. Message changes from IsNull to NotNull AND MessageType = some message type </p>
+<p>OR </p>
+<p>b. Message changes (Pre NotEqual Post) AND MessageType = some message type </p>
+<p>· Added the highlighted Expression criteria above (just copy/paste) </p>
+<p>· Notes: Replace the GUID with the same GUID as above in <i>your</i> XML. See the location in the example above, but make sure you use the GUID from your exported XML since it will be unique in each environment.
+</p>
+<p>This will need to be done for each incident event workflow (aka “&lt;Rule&gt;”) you create.
+</p>
+<p><b>!! Re-Import the Management Pack – ignore the message about losing data. !!</b>
+</p>
+<h3>Upgrade</h3>
+<p>If you had a previous release of the SendEmail solution installed please follow these instructions to upgrade:
+</p>
+<p>1) Delete the any unsealed management packs that depend on the sealed SendEmail management pack.
+</p>
+<p>2) Delete the SendEmail sealed management pack. </p>
+<p>Follow the deployment instructions above to redeploy the SendEmail solution </p>
+</div><div class="ClearBoth"></div>
